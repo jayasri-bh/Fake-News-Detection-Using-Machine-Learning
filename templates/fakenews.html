@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake News Detection</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            background: url("{{ url_for('static', filename='output.gif') }}") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.75);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px; /* added left/right padding */
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 2.4rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 6px #000000;
+            text-align: center;
+        }
+
+        /* Wide Rectangle Box with side spacing */
+        textarea {
+            width: 90%;            /* leave some space on sides */
+            max-width: 1200px;     
+            height: 140px;         
+            border-radius: 10px;   
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            font-size: 1.2rem;
+            outline: none;
+            resize: none;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            box-shadow: 0px 6px 14px rgba(0,0,0,0.4);
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        textarea:focus {
+            border: 2px solid #00c6ff;
+            box-shadow: 0px 0px 18px #00c6ff;
+        }
+
+        /* Buttons Common */
+        .btn, .home-btn {
+            background: linear-gradient(135deg, #36d1dc, #5b86e5);
+            color: white;
+            border: none;
+            padding: 16px 34px;
+            font-size: 1.2rem;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0px 6px 12px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+            width: 250px;
+            text-align: center;
+        }
+
+        .btn:hover, .home-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 12px 22px rgba(0,0,0,0.6);
+            background: linear-gradient(135deg, #ff512f, #dd2476);
+        }
+
+        /* Result Box */
+        .result-box {
+            margin-top: 35px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.5);
+            width: 90%;
+            max-width: 1100px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+
+        .real {
+            background: #28a745;
+            color: white;
+        }
+
+        .fake {
+            background: #dc3545;
+            color: white;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 1.15rem;
+        }
+
+        /* Buttons Wrapper */
+        .button-wrapper {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        form {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <h2>📰 Fake News Detection 🤖</h2>
+
+        <form method="POST">
+            <textarea name="text" placeholder="✍️ Enter a news article or sentence here...">{{text}}</textarea>
+            <div class="button-wrapper">
+                <button type="submit" class="btn">🔍 Check News</button>
+                <a href="/"><button type="button" class="home-btn">🏠 Return to Home</button></a>
+            </div>
+        </form>
+
+        {% if result %}
+        <div class="result-box">
+            <p><b>📢 Detection Result:</b></p>
+            <span class="badge {% if result.label == 'REAL' %}real{% else %}fake{% endif %}">
+                {{ result.label }} (Confidence: {{ '%.2f' % result.score }})
+            </span>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

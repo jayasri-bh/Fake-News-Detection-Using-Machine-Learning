@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Description</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            background: url("{{ url_for('static', filename='description.gif') }}") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.7);
+            min-height: 100vh;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 6px #000000;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 15px auto;
+            text-align: justify;
+            text-shadow: 1px 1px 4px #000000;
+        }
+
+        .btn {
+            margin-top: 40px;
+            background: linear-gradient(135deg, #ff9966, #ff5e62);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0px 6px 12px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0px 10px 18px rgba(0,0,0,0.5);
+            background: linear-gradient(135deg, #36d1dc, #5b86e5);
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <h2>📚 Project Description 🤖</h2>
+        
+        <p>📰 Fake news has become one of the biggest challenges in today’s digital world, where social media and online platforms allow information to spread rapidly. Distinguishing between <b>reliable</b> and <b>false</b> information is crucial to prevent misinformation from influencing society, politics, and public health.</p>
+        
+        <p>🌍 This project, <b>“Multilingual Fake News Detection using Transformers and NLP”</b>, leverages the power of advanced Natural Language Processing (NLP) models to analyze text in multiple languages. By using <b>transformer-based architectures</b> such as BART and T5, the system can classify news statements as either <b>original</b> or <b>fake</b>, and also rewrite/paraphrase the input text for clarity.</p>
+        
+        <p>⚡ Key techniques used include <b>Zero-Shot Classification</b> for fake/original detection without explicit training data, and <b>Text Generation</b> for rewriting. This makes the system flexible, efficient, and applicable across domains where labeled datasets are scarce.</p>
+        
+        <p>🤖 The <b>BART model</b> is employed for classification, while the <b>T5 model</b> is used for paraphrasing. Together, they form a pipeline that not only detects potential misinformation but also enhances the readability of the news content.</p>
+        
+        <p>✅ This application demonstrates how <b>AI and NLP</b> can be integrated into real-world tools to combat misinformation, making digital platforms safer and more trustworthy for users worldwide.</p>
+        
+        <a href="/home"><button>home</button></a>
+    </div>
+</body>
+</html>

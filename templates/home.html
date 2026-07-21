@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MULTILINGUAL FAKE NEWS DETECTION USING TRANSFORMERS AND NLP</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            text-align: center;
+            background: url("{{ url_for('static', filename='home.gif') }}") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 6px #000000;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff7eb3, #ff758c);
+            color: white;
+            border: none;
+            padding: 18px 32px;
+            font-size: 1.2rem;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0px 6px 12px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0px 10px 18px rgba(0,0,0,0.5);
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+        }
+
+        .emoji {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <h1>🌍 Generative AI-Driven Fake News Detection and Rewriting Framework Using GPT for Accurate Media Verification and Content Correction 🤖</h1>
+        <div class="button-container">
+            <a href="/contact"><button class="btn"><span class="emoji">📞</span>Contact</button></a>
+            <a href="/description"><button class="btn"><span class="emoji">📜</span>Description</button></a>
+            <a href="/fakenews"><button class="btn"><span class="emoji">📰</span>Fake News Detection</button></a>
+        </div>
+    </div>
+</body>
+</html>
