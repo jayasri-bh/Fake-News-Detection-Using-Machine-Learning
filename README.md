@@ -20,23 +20,20 @@ This project is a Flask-based web application that detects whether a news articl
 - CSS
 
 ## Project Structure
-- `APP.py` - Main Flask application
-- `templates/` - HTML pages
-- `static/` - Images and other static files
-- `users.db` - SQLite database
-- `requirements.txt` - Project dependencies
+Fake-News-Detection-Using-Machine-Learning/
+│
+├── APP.py # Main Flask application
+├── requirements.txt # Project dependencies
+├── templates/ # HTML pages (index, signup, signin, home, fakenews, description, contact)
+└── static/ # GIFs and images demonstrating app screens
+> Note: The app generates its own SQLite database (`users.db`) at runtime — it's excluded from version control via `.gitignore`.
 
 ## Installation
-
 1. Clone the repository.
 2. Install the required libraries:
-   ```
-   pip install -r requirements.txt
-   ```
+pip install -r requirements.txt
 3. Run the application:
-   ```
-   python APP.py
-   ```
+python APP.py
 
 ## Author
 **Jaya sri**
